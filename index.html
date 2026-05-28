@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>My Magical Day</title>
+  <link rel="icon" type="image/png" href="assets/heart.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg-sparkles" aria-hidden="true"></div><div class="bg-decors" aria-hidden="true"></div>
+  <main id="stage">
+    <header class="hero"><p class="eyebrow">✦ kawaii pixel planner ✦</p><h1>My Magical Day</h1><p class="subtitle">a tiny enchanted stationery shop for your plans</p></header>
+    <section class="dashboard">
+      <aside class="control-panel pixel-card">
+        <div class="profile"><div class="avatar" id="avatar">🐰</div><div><label for="nameInput">planner name</label><input id="nameInput" type="text" maxlength="18" /></div></div>
+        <label for="moodSelect">today's mood charm</label><select id="moodSelect"><option value="sparkly">✨ sparkly</option><option value="cozy">☕ cozy</option><option value="brave">🌈 brave</option><option value="sleepy">🌙 sleepy</option></select>
+        <label for="themeSelect">receipt magic</label><select id="themeSelect"><option value="strawberry">🍓 strawberry milk</option><option value="lavender">💜 lavender cloud</option><option value="mint">🍵 mint bunny</option></select>
+        <div class="stats"><div><strong id="eventCount">0</strong><span>events</span></div><div><strong id="todoCount">0</strong><span>tasks</span></div><div><strong id="doneCount">0</strong><span>done</span></div></div>
+        <div class="progress-wrap"><span>quest progress</span><div class="progress"><i id="progressBar"></i></div></div>
+        <div class="actions"><button class="cute-btn" data-open-modal="event">+ event</button><button class="cute-btn purple" data-open-modal="todo">+ task</button><button class="cute-btn soft" id="resetBtn">reset</button></div>
+      </aside>
+      <section class="printer-scene">
+        <div class="printer-wrap"><img src="assets/printer.png" alt="pink pixel receipt printer" class="printer" /><div class="printer-text" id="printerText">₊✩‧₊˚print magic₊✩‧₊˚</div><div class="heart"></div></div>
+        <button id="printBtn" class="print-btn" type="button" aria-label="Print today's magical receipt"></button>
+        <article class="receipt" id="receipt"><span class="receipt-date" id="receiptDate"></span><div class="receipt-topper">♡ pixel receipt ♡</div><h2 id="receiptTitle">My Magical Day</h2><p class="affirmation" id="affirmation"></p><hr /><section class="receipt-section receipt-section-events"><h3>✧ Events</h3><ul class="events" id="eventsList"></ul></section><hr /><section class="receipt-section receipt-section-todos"><h3>✧ To-do quests</h3><ul class="todos" id="todosList"></ul></section><div class="receipt-footer" id="receiptFooter"></div></article>
+      </section>
+    </section>
+  </main>
+  <dialog class="modal" id="itemModal"><form method="dialog" class="modal-card pixel-card" id="itemForm"><button class="modal-close" value="cancel" aria-label="Close">×</button><div class="bow">୨୧</div><h2 id="modalTitle">Add magic</h2><input type="hidden" id="itemType" /><input type="hidden" id="itemId" /><label for="itemLabel">tiny note</label><input id="itemLabel" type="text" maxlength="42" required placeholder="water the moonflowers" /><div class="event-fields" id="eventFields"><label for="itemTime">time spell</label><input id="itemTime" type="text" maxlength="18" placeholder="10:00 - 11:00" /></div><label for="itemCategory">sticker label</label><select id="itemCategory"><option value="personal">personal</option><option value="work">work</option></select><menu><button class="cute-btn soft" type="button" id="deleteBtn">delete</button><button class="cute-btn" value="default" type="submit">save magic</button></menu></form></dialog>
+  <script src="script.js" defer></script>
+</body>
+</html>

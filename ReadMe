@@ -1,0 +1,174 @@
+# 🌸 My Magical Day ✨
+
+> A kawaii pixel-art daily planner web app — a cuter, more magical upgrade of the original "Digital Typewriter" receipt printer concept.
+
+***
+
+## 📸 Preview
+
+A pastel pixel-art themed daily planner that lets you add events and to-dos, pick your mood, and "print" a beautiful kawaii receipt for your day — complete with confetti hearts, sparkle effects, and animated backgrounds.
+
+***
+
+## ✨ Features
+
+- 🖨️ **Animated Pixel Printer** — A bouncy pixel printer that dramatically prints your daily receipt with heart confetti flying out
+- 📝 **Editable Events & To-Dos** — Add, manage, and delete your own events (with time + category) and to-do items (with priority stars)
+- 😊 **Mood Picker** — Choose your daily mood from 6 pixel emoji options before printing
+- 🌟 **Live Progress Bar** — A pixel health-bar style progress tracker that updates as you check off tasks
+- 💬 **Daily Affirmations** — A rotating kawaii quote appears at the bottom of every receipt
+- 🌸 **3 Animated Background Themes** — Cherry Blossom Garden, Night Cozy Room, and Pastel Clouds
+- 🔊 **Sound Effects** *(toggleable)* — Synthesized pixel sounds for printing, task completion, and typing (Web Audio API — no external files)
+- ✦ **Sparkle Bursts** — Completing a to-do triggers a burst of pixel sparkles
+- 🧾 **Beautiful Receipt** — Torn paper edge, washi tape decoration, mood header, progress bar, affirmation box, and pixel category icons
+
+***
+
+## 🗂️ Project Structure
+
+```
+my-magical-day/
+├── my-magical-day.html        ← Full standalone app (all CSS + JS inline)
+│
+├── index.html                 ← Original "Digital Typewriter" project (reference)
+├── styles.css                 ← Original project styles
+├── script.js                  ← Original project scripts
+│
+├── assets/
+│   ├── printer.png            ← Pixel printer sprite
+│   ├── heart.png              ← Pixel heart decoration
+│   ├── button.png             ← Print button sprite
+│   ├── event-personal-label.png
+│   ├── event-work-label.png
+│   ├── todo-personal-label.png
+│   └── todo-work-label.png
+│
+└── README.md
+```
+
+> **Note:** `my-magical-day.html` is fully self-contained and works without any asset files — all decorations are CSS pixel-art. The original project (`index.html`) requires the `assets/` folder.
+
+***
+
+## 🚀 Getting Started
+
+### Option 1 — Just open it (recommended)
+
+No server, no build tools, no dependencies needed.
+
+```bash
+# Clone the repo
+git clone https://github.com/YOUR-USERNAME/my-magical-day.git
+
+# Open in your browser
+open my-magical-day.html
+# or just double-click the file in your file explorer
+```
+
+### Option 2 — Serve locally (for the original project with assets)
+
+```bash
+# Using Python
+python -m http.server 8000
+
+# Using Node.js
+npx serve .
+```
+
+Then open `http://localhost:8000` in your browser.
+
+***
+
+## 🛠️ Tech Stack
+
+| Technology | Usage |
+|---|---|
+| **Vanilla HTML/CSS/JS** | Everything — no frameworks |
+| **Pixelify Sans** | Primary pixel font (Google Fonts) |
+| **Press Start 2P** | Accent pixel font (Google Fonts) |
+| **Web Audio API** | Synthesized sound effects (no audio files) |
+| **CSS Animations** | All sparkles, printer motion, backgrounds |
+| **CSS clip-path** | Torn receipt paper edge |
+| **CSS box-shadow art** | Pixel decorations drawn in pure CSS |
+
+No `npm install`. No build step. No backend. Pure web.
+
+***
+
+## 🎨 Design & Aesthetic
+
+The visual style is **kawaii pixel art** — a blend of:
+
+- 🎮 Stardew Valley cozy pixel art
+- 🎀 Sanrio pastel softness
+- 🎵 Lo-fi aesthetic calm
+
+### Color Palette
+
+| Name | Hex |
+|---|---|
+| Soft Pink | `#FFD9F2` |
+| Lilac | `#F2D4FF` |
+| Sky Blue | `#D5F1FF` |
+| Mint | `#C8F5E8` |
+| Warm Cream | `#FFF8F0` |
+| Deep Rose | `#AC4C95` |
+
+***
+
+## 📋 How to Use
+
+1. **Open** `my-magical-day.html` in any modern browser
+2. **Add your events** — click ＋ to add events with time and category (personal / work / study / hobby)
+3. **Add your to-dos** — click ＋ to add tasks with priority level (low / medium / high)
+4. **Pick your mood** — choose from 6 pixel emoji moods at the top
+5. **Switch background** — toggle between Cherry Blossom 🌸, Night Room 🌙, or Pastel Clouds ☁️
+6. **Print your day** — click the **Print** button and watch the magic happen 🎉
+7. **Check off tasks** on your receipt for sparkle bursts and progress bar updates
+8. **New Day** — reset everything with the "New Day ✨" button
+
+***
+
+## 🌟 Highlights vs. Original Project
+
+| Feature | Original (Digital Typewriter) | My Magical Day ✨ |
+|---|---|---|
+| Events & To-Dos | Hardcoded in HTML | Fully editable, add/delete live |
+| Mood tracking | ❌ | ✅ 6 pixel moods |
+| Progress bar | ❌ | ✅ Pixel health-bar style |
+| Daily affirmations | ❌ | ✅ Rotating kawaii quotes |
+| Background themes | Fixed gradient | ✅ 3 animated scenes |
+| Sound effects | ❌ | ✅ Web Audio API synth sounds |
+| Receipt design | Simple list | ✅ Washi tape, torn edge, mood, progress |
+| Printer animation | Slides down | ✅ Bounces + heart confetti burst |
+| Self-contained | No (needs assets folder) | ✅ Single HTML file |
+
+***
+
+## 🤝 Contributing
+
+Pull requests are welcome! If you have ideas for new features, background themes, or kawaii improvements, feel free to open an issue or submit a PR.
+
+1. Fork the repo
+2. Create a feature branch: `git checkout -b feature/your-feature-name`
+3. Commit your changes: `git commit -m "Add: your feature description"`
+4. Push to the branch: `git push origin feature/your-feature-name`
+5. Open a Pull Request
+
+***
+
+## 📄 License
+
+MIT License — free to use, modify, and share. A star ⭐ is always appreciated!
+
+***
+
+## 💝 Acknowledgements
+
+- Original "Digital Typewriter" concept for the receipt printer inspiration
+- [Pixelify Sans](https://fonts.google.com/specimen/Pixelify+Sans) and [Press Start 2P](https://fonts.google.com/specimen/Press+Start+2P) fonts
+- The kawaii internet for endless pixel art inspiration 🌸
+
+***
+
+<p align="center">Made with 💜 and way too many sparkles ✦✧⋆✩</p>
