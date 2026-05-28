@@ -1,36 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>My Magical Day</title>
-  <link rel="icon" type="image/png" href="assets/heart.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>My Magical Day ✨</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Press+Start+2P&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="bg-sparkles" aria-hidden="true"></div><div class="bg-decors" aria-hidden="true"></div>
-  <main id="stage">
-    <header class="hero"><p class="eyebrow">✦ kawaii pixel planner ✦</p><h1>My Magical Day</h1><p class="subtitle">a tiny enchanted stationery shop for your plans</p></header>
-    <section class="dashboard">
-      <aside class="control-panel pixel-card">
-        <div class="profile"><div class="avatar" id="avatar">🐰</div><div><label for="nameInput">planner name</label><input id="nameInput" type="text" maxlength="18" /></div></div>
-        <label for="moodSelect">today's mood charm</label><select id="moodSelect"><option value="sparkly">✨ sparkly</option><option value="cozy">☕ cozy</option><option value="brave">🌈 brave</option><option value="sleepy">🌙 sleepy</option></select>
-        <label for="themeSelect">receipt magic</label><select id="themeSelect"><option value="strawberry">🍓 strawberry milk</option><option value="lavender">💜 lavender cloud</option><option value="mint">🍵 mint bunny</option></select>
-        <div class="stats"><div><strong id="eventCount">0</strong><span>events</span></div><div><strong id="todoCount">0</strong><span>tasks</span></div><div><strong id="doneCount">0</strong><span>done</span></div></div>
-        <div class="progress-wrap"><span>quest progress</span><div class="progress"><i id="progressBar"></i></div></div>
-        <div class="actions"><button class="cute-btn" data-open-modal="event">+ event</button><button class="cute-btn purple" data-open-modal="todo">+ task</button><button class="cute-btn soft" id="resetBtn">reset</button></div>
-      </aside>
-      <section class="printer-scene">
-        <div class="printer-wrap"><img src="assets/printer.png" alt="pink pixel receipt printer" class="printer" /><div class="printer-text" id="printerText">₊✩‧₊˚print magic₊✩‧₊˚</div><div class="heart"></div></div>
-        <button id="printBtn" class="print-btn" type="button" aria-label="Print today's magical receipt"></button>
-        <article class="receipt" id="receipt"><span class="receipt-date" id="receiptDate"></span><div class="receipt-topper">♡ pixel receipt ♡</div><h2 id="receiptTitle">My Magical Day</h2><p class="affirmation" id="affirmation"></p><hr /><section class="receipt-section receipt-section-events"><h3>✧ Events</h3><ul class="events" id="eventsList"></ul></section><hr /><section class="receipt-section receipt-section-todos"><h3>✧ To-do quests</h3><ul class="todos" id="todosList"></ul></section><div class="receipt-footer" id="receiptFooter"></div></article>
-      </section>
+
+<div class="bg-layer" id="bgCherry"></div>
+<div class="bg-layer hidden" id="bgNight"></div>
+<div class="bg-layer hidden" id="bgClouds"></div>
+<div class="bg-sparkles" id="bgSparkles"></div>
+
+<div id="stage">
+  <header class="hero">
+    <p class="eyebrow">✦ kawaii pixel planner ✦</p>
+    <h1>My Magical Day</h1>
+    <p class="subtitle">a tiny enchanted stationery shop for your plans</p>
+  </header>
+
+  <div class="dashboard">
+    <aside class="control-panel pixel-card">
+      <div class="profile">
+        <div class="avatar" id="avatar">🐰</div>
+        <div>
+          <label for="nameInput">planner name</label>
+          <input id="nameInput" type="text" maxlength="18" placeholder="Your name...">
+        </div>
+      </div>
+
+      <label>🌿 background scene</label>
+      <div class="theme-btns" id="themeBtns">
+        <button class="theme-btn active" data-theme="cherry">🌸<span>cherry</span></button>
+        <button class="theme-btn" data-theme="night">🌙<span>night</span></button>
+        <button class="theme-btn" data-theme="clouds">☁️<span>clouds</span></button>
+      </div>
+
+      <label>🌈 today's mood</label>
+      <div class="mood-btns" id="moodBtns">
+        <button class="mood-btn active" data-mood="happy">😊<span>happy</span></button>
+        <button class="mood-btn" data-mood="tired">😴<span>tired</span></button>
+        <button class="mood-btn" data-mood="stressed">😰<span>stressed</span></button>
+        <button class="mood-btn" data-mood="excited">🤩<span>excited</span></button>
+        <button class="mood-btn" data-mood="cozy">☕<span>cozy</span></button>
+        <button class="mood-btn" data-mood="productive">💪<span>productive</span></button>
+      </div>
+
+      <label class="sound-toggle">
+        <input type="checkbox" id="soundToggle" checked>
+        🔊 sound effects (on)
+      </label>
+
+      <div class="stats">
+        <div><strong id="eventCount">0</strong><span>events</span></div>
+        <div><strong id="todoCount">0</strong><span>tasks</span></div>
+        <div><strong id="doneCount">0</strong><span>done</span></div>
+      </div>
+
+      <div class="progress-wrap">
+        <span style="font-size:14px;color:#A94A98">quest progress</span>
+        <div class="progress"><i id="progressBar" style="width:0%"></i></div>
+      </div>
+
+      <div class="actions">
+        <button class="cute-btn" id="addEventBtn">+ event</button>
+        <button class="cute-btn purple" id="addTodoBtn">+ task</button>
+        <button class="cute-btn soft" id="resetBtn">new day</button>
+      </div>
+    </aside>
+
+    <section class="printer-scene">
+      <div class="printer-wrap">
+        <div class="printer-body printer-breathe" id="printerBody">
+          <svg class="printer-svg" viewBox="0 0 400 280" fill="none">
+            <rect x="60" y="80" width="280" height="160" rx="24" fill="#FFD9F2" stroke="#E28CC3" stroke-width="4"/>
+            <rect x="50" y="70" width="300" height="30" rx="15" fill="#FFF0FA" stroke="#E28CC3" stroke-width="3"/>
+            <rect x="70" y="78" width="260" height="14" rx="7" fill="#FFB0D4"/>
+            <rect x="85" y="100" width="230" height="100" rx="12" fill="#FFF8F0" stroke="#E8B4D0" stroke-width="3"/>
+            <line x1="100" y1="120" x2="300" y2="120" stroke="#F2D4FF" stroke-width="2" stroke-dasharray="4 4"/>
+            <line x1="100" y1="140" x2="300" y2="140" stroke="#F2D4FF" stroke-width="2" stroke-dasharray="4 4"/>
+            <line x1="100" y1="160" x2="300" y2="160" stroke="#F2D4FF" stroke-width="2" stroke-dasharray="4 4"/>
+            <line x1="100" y1="180" x2="300" y2="180" stroke="#F2D4FF" stroke-width="2" stroke-dasharray="4 4"/>
+            <rect x="110" y="115" width="6" height="6" rx="1" fill="#FFB0D4"/>
+            <rect x="284" y="115" width="6" height="6" rx="1" fill="#FFB0D4"/>
+            <rect x="60" y="200" width="280" height="40" rx="12" fill="#FFF0FA" stroke="#E28CC3" stroke-width="3"/>
+            <rect x="170" y="210" width="60" height="20" rx="10" fill="#FFB0D4"/>
+            <rect x="120" y="214" width="36" height="12" rx="6" fill="#E882C0"/>
+            <rect x="244" y="214" width="36" height="12" rx="6" fill="#E882C0"/>
+            <rect x="155" y="248" width="90" height="8" rx="4" fill="#E8B4D0"/>
+            <circle cx="335" cy="165" r="18" fill="#FFB0D4" stroke="#E28CC3" stroke-width="3"/>
+            <rect x="325" y="163" width="20" height="4" rx="2" fill="#fff"/>
+            <rect x="333" y="155" width="4" height="20" rx="2" fill="#fff"/>
+          </svg>
+        </div>
+        <div class="printer-label">₊✩‧₊˚ print magic ₊✩‧₊˚</div>
+      </div>
+
+      <div class="print-btn-container">
+        <button class="print-btn" id="printBtn" aria-label="Print receipt">🖨️</button>
+      </div>
+
+      <article class="receipt closed" id="receipt">
+        <div class="washi-tape"></div>
+        <div class="receipt-header">
+          <span class="receipt-date" id="receiptDate"></span>
+          <span class="receipt-mood" id="receiptMood"></span>
+          <div class="receipt-title" id="receiptTitle">My Magical Day</div>
+          <div class="receipt-subtitle" id="receiptSubtitle">✦ today's plan ✦</div>
+        </div>
+
+        <section class="receipt-section">
+          <h3>📅 Events</h3>
+          <ul class="receipt-list" id="eventsList"></ul>
+        </section>
+
+        <section class="receipt-section">
+          <h3>✅ To-do Quests</h3>
+          <ul class="receipt-list" id="todosList"></ul>
+        </section>
+
+        <div class="receipt-progress">
+          <div class="receipt-progress-header">
+            <span id="progressLabel">quest progress</span>
+            <span id="progressCount">0/0 done 🌟</span>
+          </div>
+          <div class="receipt-progress-bar">
+            <div class="receipt-progress-fill" id="receiptProgressFill" style="width:0%"></div>
+          </div>
+        </div>
+
+        <div class="affirmation-box" id="affirmationBox">You are doing amazing sweetie ✧</div>
+      </article>
     </section>
-  </main>
-  <dialog class="modal" id="itemModal"><form method="dialog" class="modal-card pixel-card" id="itemForm"><button class="modal-close" value="cancel" aria-label="Close">×</button><div class="bow">୨୧</div><h2 id="modalTitle">Add magic</h2><input type="hidden" id="itemType" /><input type="hidden" id="itemId" /><label for="itemLabel">tiny note</label><input id="itemLabel" type="text" maxlength="42" required placeholder="water the moonflowers" /><div class="event-fields" id="eventFields"><label for="itemTime">time spell</label><input id="itemTime" type="text" maxlength="18" placeholder="10:00 - 11:00" /></div><label for="itemCategory">sticker label</label><select id="itemCategory"><option value="personal">personal</option><option value="work">work</option></select><menu><button class="cute-btn soft" type="button" id="deleteBtn">delete</button><button class="cute-btn" value="default" type="submit">save magic</button></menu></form></dialog>
-  <script src="script.js" defer></script>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal-card">
+    <button class="modal-close" id="modalClose">✕</button>
+    <div class="modal-bow">🎀</div>
+    <h2 id="modalTitle">Add magic</h2>
+    <input type="hidden" id="itemType">
+    <input type="hidden" id="itemId">
+    <label for="itemLabel">tiny note</label>
+    <input id="itemLabel" type="text" maxlength="60" placeholder="water the moonflowers...">
+    <div class="event-fields" id="eventFields">
+      <label for="itemTime">time spell</label>
+      <input id="itemTime" type="text" maxlength="24" placeholder="10:00 - 11:00">
+      <label for="itemLink">magic link (optional)</label>
+      <input id="itemLink" type="url" maxlength="200" placeholder="https://...">
+    </div>
+    <label for="itemCategory">sticker label</label>
+    <select id="itemCategory">
+      <option value="personal">🌸 personal</option>
+      <option value="work">💼 work</option>
+      <option value="study">📖 study</option>
+      <option value="hobby">🎨 hobby</option>
+    </select>
+    <div class="priority-field" id="priorityField">
+      <label>priority level</label>
+      <select id="itemPriority">
+        <option value="low">⭐ low</option>
+        <option value="medium" selected>⭐⭐ medium</option>
+        <option value="high">⭐⭐⭐ high</option>
+      </select>
+    </div>
+    <menu>
+      <button class="cute-btn soft" id="deleteBtn">delete</button>
+      <button class="cute-btn" id="saveBtn">save magic</button>
+    </menu>
+  </div>
+</div>
+
+<div class="confirm-overlay" id="confirmOverlay">
+  <div class="confirm-card">
+    <span class="confirm-trash">🗑️</span>
+    <p>Start a new day?<br>All your tasks will vanish~</p>
+    <div class="confirm-actions">
+      <button class="cute-btn soft" id="confirmNo">cancel</button>
+      <button class="cute-btn" id="confirmYes">new day!</button>
+    </div>
+  </div>
+</div>
+
+<script src="script.js" defer></script>
 </body>
 </html>

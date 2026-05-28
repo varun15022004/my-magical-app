@@ -793,8 +793,12 @@ $('#receipt').addEventListener('click', (e) => {
     return;
   }
 
-  openModal('todo', item);
+  openTarget(item);
 });
+
+function openTarget(item) {
+  openModal('todo', item);
+}
 
 $('#receipt').addEventListener('dblclick', (e) => {
   const li = e.target.closest('li[data-id]');
@@ -935,6 +939,7 @@ document.addEventListener('keydown', (e) => {
 render();
 
 })();
+
 </script>
 </body>
 </html>
